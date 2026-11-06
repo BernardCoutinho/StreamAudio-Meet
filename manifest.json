@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "StreamAudio - Áudio por Janela",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Captura áudio da janela compartilhada no Meet com ganho ajustável de 0% a 1000%.",
   "permissions": [
     "storage"
