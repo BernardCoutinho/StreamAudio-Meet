@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StreamAudio</title>
+  <style>
+    body { min-width: 260px; margin: 0; padding: 18px; font: 14px/1.5 system-ui, sans-serif; background: #0e1b32; color: #f1f7ff; }
+    h1 { font-size: 17px; margin: 0 0 2px; }
+    p { color: #b3c3d5; margin: 0 0 14px; }
+    .value { font-size: 30px; font-weight: 700; margin: 6px 0; color: #48e5d0; }
+    input[type=range] { display: block; width: 100%; accent-color: #36ddc9; cursor: pointer; }
+    .range { display: flex; justify-content: space-between; color: #aabbd0; font-size: 12px; }
+    .hint { margin-top: 16px; font-size: 12px; }
+    button { margin-top: 12px; border-radius: 6px; padding: 7px 12px; border: 1px solid #53718f; color: white; background: #1d3751; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>StreamAudio Meet</h1>
+  <p>Ganho do áudio compartilhado</p>
+  <div class="value" id="value">300%</div>
+  <label for="gain">Volume da apresentação</label>
+  <input id="gain" type="range" min="0" max="1000" step="25" value="300">
+  <div class="range"><span>0% (silenciar)</span><span>1000%</span></div>
+  <button type="button" id="reset">Restaurar 300%</button>
+  <p class="hint">Não altera seu headset. Valores altos podem causar distorção; ajuste conforme o áudio recebido.</p>
+  <script src="popup.js"></script>
+</body>
+</html>

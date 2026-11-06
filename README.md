@@ -1,83 +1,24 @@
-# StreamAudio Meet
+# StreamAudio Meet v0.1.4 — Ajuste de ganho
 
-**Share only the audio you want on Google Meet.**
+Extensão experimental Chrome Manifest V3, para Google Meet. Intercepta a solicitação de compartilhamento de janela para selecionar `windowAudio: "window"` e aplica ganho somente à trilha de áudio da apresentação.
 
-StreamAudio Meet is a free, lightweight Chrome extension that lets you share a specific application's audio during Google Meet presentations without broadcasting every sound from your computer.
+## Instalação
+1. Extraia o ZIP.
+2. Acesse `chrome://extensions`, ative **Modo do desenvolvedor** e clique em **Carregar sem compactação**.
+3. Selecione a pasta extraída. Desative antes a versão anterior da extensão.
+4. Recarregue as abas do Google Meet.
 
-## Features
+## Uso
+1. Clique no ícone StreamAudio (fixe-o na barra se necessário).
+2. Ajuste o ganho entre **0% e 1000%**; valor inicial **300%**.
+3. No Meet, compartilhe uma **janela** e ative **Compartilhar também o áudio do app**.
+4. O valor pode ser alterado durante a apresentação. A configuração fica salva localmente no navegador.
 
-- **Application audio isolation** — Share audio associated with the selected window instead of your entire system.
-- **Independent transmission volume** — Adjust audio gain from 0% to 1000%.
-- **Mute presentation audio** — Set gain to 0% without stopping screen sharing.
-- **Preserved local audio** — Keep listening to your applications at their normal volume.
-- **Separate microphone** — Presentation audio remains independent from your microphone.
-- **Lightweight** — No additional audio drivers or desktop applications required.
+Em **0%**, o áudio da apresentação fica silenciado pela extensão, mas a imagem compartilhada e a reprodução local continuam normais.
 
-## How It Works
+**Importante:** até 1000% significa multiplicação de amplitude do sinal, e não aumento linear da sensação de volume. Ganhos altos podem causar clipping/distorção e o Meet pode aplicar processamento adicional. A extensão não aumenta o volume do headset nem o do microfone.
 
-StreamAudio Meet uses Chrome's native window audio capture capabilities and the Web Audio API to control the audio sent through Google Meet presentations.
+## Validação
+Teste com outra pessoa: 300%, 500%, 700%, 1000%, mantendo a saída local inalterada e verificando distorções. Reconfirme isolamento com Spotify + jogo e encerramento da apresentação.
 
-The extension requests application-specific audio capture and applies gain to the captured audio stream.
-
-It does not need to modify your system's application volume settings.
-
-## Installation
-
-### Manual Installation
-
-1. Download the latest release from this repository.
-2. Extract the ZIP file.
-3. Open `chrome://extensions` in Google Chrome.
-4. Enable **Developer mode**.
-5. Click **Load unpacked**.
-6. Select the extracted extension folder.
-7. Open or reload Google Meet.
-
-## How to Use
-
-1. Join a Google Meet meeting.
-2. Click **Present now** and select an application window.
-3. Enable audio sharing.
-4. Start presenting.
-5. Open the StreamAudio Meet extension popup.
-6. Adjust the transmission gain from 0% to 1000%.
-
-Your local application audio remains unchanged.
-
-## Compatibility
-
-- Google Chrome on Windows 11
-- Google Meet
-- Chrome versions supporting application-specific window audio capture
-
-Compatibility may vary depending on Chrome updates, application behavior, and Google Meet changes.
-
-## Limitations
-
-- Audio isolation depends on Chrome's window audio capture implementation.
-- Applications using multiple unrelated processes may not be fully isolated.
-- High amplification levels may cause clipping or distortion.
-- Google Meet or Chrome updates may affect compatibility.
-- This is an independent community project, not an official Google product.
-
-## Privacy
-
-StreamAudio Meet is designed to process captured audio locally in the browser.
-
-The project does not require user accounts or cloud services.
-
-Review the source code and the repository's privacy documentation for implementation details.
-
-## Contributing
-
-Contributions, suggestions, and bug reports are welcome.
-
-If you find the project useful, consider giving it a ⭐ on GitHub.
-
-## License
-
-Distributed under the MIT License.
-
----
-
-**Free and open source, built for the community.**
+Sem servidores, sem gravação e sem coleta de áudio. Permissão `storage` armazena apenas o ganho.
